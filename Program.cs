@@ -100,7 +100,7 @@ namespace GroveHatExample
                     double yVolt = joystick.ReadYVoltage();
                     
                     _logger?.LogInformation(
-                        $"ADC Values - X:  {xRaw} ({xVolt:F2}V), Y: {yRaw} ({yVolt:F2}V)");
+                        $"ADC Values - X:  {xRaw} ({xVolt:F3}V), Y: {yRaw} ({yVolt:F3}V)");
                 }
                 
                 loopCount++;

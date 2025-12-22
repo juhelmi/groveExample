@@ -25,6 +25,7 @@ namespace GroveHatExample
         {
             _gpio = new GpioController();
             _adc = new GroveAdc();
+            Console.WriteLine( $"Grove Base Hat has ADC {_adc.Name}");
         }
         
         public GpioController Gpio => _gpio;

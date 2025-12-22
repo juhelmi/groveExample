@@ -59,9 +59,9 @@ namespace GroveHatExample
                 led.Off();
             };
             
-            // Setup Joystick on A0 (X-axis) and A2 (Y-axis)
-            using var joystick = new GroveJoystick(hat.Adc, GroveAdc.A0, GroveAdc.A2);
-            _logger?.LogInformation("Joystick initialized on A0 (X) and A2 (Y)");
+            // Setup Joystick on A0 (X-axis) and A1 (Y-axis)
+            using var joystick = new GroveJoystick(hat.Adc, GroveAdc.A2, GroveAdc.A3);
+            _logger?.LogInformation("Joystick initialized on A0 (X) and A1 (Y)");
             
             _logger?.LogInformation("Press Ctrl+C to exit");
             _logger?.LogInformation("Move joystick or press button to interact");
@@ -93,7 +93,7 @@ namespace GroveHatExample
                 if (loopCount % 50 == 0) // Every 5 seconds
                 {
                     int xRaw = joystick.ReadXRaw();
-                    int yRaw = joystick. ReadYRaw();
+                    int yRaw = joystick.ReadYRaw();
                     double xVolt = joystick.ReadXVoltage();
                     double yVolt = joystick.ReadYVoltage();
                     

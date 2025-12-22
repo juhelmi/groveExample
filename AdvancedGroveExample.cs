@@ -27,7 +27,7 @@ namespace GroveHatExample
             _led1 = new GroveLed(_hat. Gpio, GroveBaseHat.D5);
             _led2 = new GroveLed(_hat.Gpio, GroveBaseHat.D16);
             _button = new GroveButton(_hat.Gpio, GroveBaseHat.D18);
-            _joystick = new GroveJoystick(_hat.Adc, GroveAdc.A0, GroveAdc.A2);
+            _joystick = new GroveJoystick(_hat.Adc, GroveAdc.A2, GroveAdc.A3);
             
             // Setup button events
             _button.Pressed += OnButtonPressed;

@@ -6,11 +6,14 @@ namespace GroveHatExample
     public class GroveAdc : IDisposable
     {
         private readonly I2cDevice _i2cDevice;
-        private const byte ADC_ADDRESS = 0x04;
+        // private const byte ADC_ADDRESS = 0x04;
+        private const byte ADC_ADDRESS = 0x08; // Corrected I2C address for Grove ADC
         
         // ADC channel mappings
         public const int A0 = 0;
+        public const int A1 = 1;
         public const int A2 = 2;
+        public const int A3 = 3;
         public const int A4 = 4;
         public const int A6 = 6;
         

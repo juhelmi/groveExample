@@ -1,7 +1,7 @@
 using System;
 using System.Device.I2c;
 
-namespace GroveHatExample
+namespace GroveHatExample.ADC
 {
     public class GroveAdc : IDisposable
     {

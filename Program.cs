@@ -7,6 +7,8 @@ using GroveHatExample;
 using GroveHatExample.Devices;
 using Microsoft.Extensions.Logging;
 
+using GroveDev;
+
 namespace GroveHatExample
 {
     class Program

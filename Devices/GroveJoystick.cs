@@ -1,6 +1,8 @@
 using System;
 
-namespace GroveHatExample. Devices
+using GroveDev;
+
+namespace GroveHatExample.Devices
 {
     public class GroveJoystick :  IDisposable
     {
@@ -15,11 +17,11 @@ namespace GroveHatExample. Devices
             _channelY = channelY;
         }
         
-        public int ReadXRaw() => _adc.ReadValue(_channelX);
-        public int ReadYRaw() => _adc.ReadValue(_channelY);
+        public int ReadXRaw() => _adc.ReadRaw(_channelX);
+        public int ReadYRaw() => _adc.ReadRaw(_channelY);
         
-        public double ReadXVoltage() => _adc.ReadVoltage(_channelX);
-        public double ReadYVoltage() => _adc.ReadVoltage(_channelY);
+        public double ReadXVoltage() => _adc.ReadVoltage(_channelX)/1000.0;
+        public double ReadYVoltage() => _adc.ReadVoltage(_channelY)/1000.0;
         
         // Returns normalized values (-1.0 to 1.0)
         public (double x, double y) ReadNormalized()
@@ -32,7 +34,7 @@ namespace GroveHatExample. Devices
             double y = (yRaw - 2048.0) / 2048.0;
             
             // Clamp to -1.0 to 1.0
-            x = Math. Clamp(x, -1.0, 1.0);
+            x = Math.Clamp(x, -1.0, 1.0);
             y = Math.Clamp(y, -1.0, 1.0);
             
             return (x, y);
@@ -53,7 +55,7 @@ namespace GroveHatExample. Devices
             }
             else
             {
-                return y > 0 ?  JoystickDirection.Up :  JoystickDirection.Down;
+                return y > 0 ? JoystickDirection.Up : JoystickDirection.Down;
             }
         }
         

@@ -3,10 +3,19 @@ using System.Device.I2c;
 
 // Stype is from Python library grove.adc
 
-namespace Grove.Adc
+namespace GroveDev
 {   
+    enum AdcChannel
+    {
+        A0 = 0,
+        A1 = 1,
+        A2 = 2,
+        A3 = 3,
+        A4 = 4,
+        A6 = 6
+    }
 
-public class Adc : IDisposable
+public class GroveAdc : IDisposable
 {
     // Replace these with the actual values from your Python environment
     public const int RPI_ADC_ADDRESS = 0x08;
@@ -14,6 +23,14 @@ public class Adc : IDisposable
     public const int RPI_ZERO_HAT_PID = 0x0005;    // example PID
     public const string RPI_HAT_NAME = "Grove Base Hat";
     public const string RPI_ZERO_HAT_NAME = "Grove Base Hat Zero";
+
+    // ADC channel mappings
+    public const int A0 = 0;
+        public const int A1 = 1;
+        public const int A2 = 2;
+        public const int A3 = 3;
+        public const int A4 = 4;
+        public const int A6 = 6;
 
     private readonly I2cDevice _device;
     private bool _disposed;
@@ -25,7 +42,7 @@ public class Adc : IDisposable
     /// </summary>
     public bool ReadIsLittleEndian { get; set; } = true;
 
-    public Adc(int address = RPI_ADC_ADDRESS, int busId = 1)
+    public GroveAdc(int address = RPI_ADC_ADDRESS, int busId = 1)
     {
         var settings = new I2cConnectionSettings(busId, address);
         _device = I2cDevice.Create(settings);

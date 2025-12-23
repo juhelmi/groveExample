@@ -13,6 +13,7 @@ namespace GroveHatExample
         //private readonly I2cDevice _i2cDevice;
         private readonly GroveAdc _adc;
         private readonly Ads1115Wrapper _ads1115;
+        private readonly Mcp9600Wrapper _mcp9600;
         
         // Grove digital port mappings (BCM GPIO numbers)
         public const int D5 = 5;
@@ -30,17 +31,21 @@ namespace GroveHatExample
             //_i2cDevice = 
             _adc = new GroveAdc();
             _ads1115 = new Ads1115Wrapper();
+            _mcp9600 = new Mcp9600Wrapper();
             Console.WriteLine( $"Grove Base Hat has ADC {_adc.Name}");
         }
         
         public GpioController Gpio => _gpio;
         public GroveAdc Adc => _adc;
         public Ads1115Wrapper Ads1115Wrapper => _ads1115;
+        public Mcp9600Wrapper Mcp9600Wrapper => _mcp9600;
         
         public void Dispose()
         {
             _gpio?.Dispose();
             _adc?. Dispose();
+            _ads1115?.Dispose();
+            _mcp9600?.Dispose();
         }
     }
 }

@@ -77,6 +77,12 @@ namespace GroveHatExample
                 var ain = loopCount % 8;
                 var voltage = hat.Ads1115Wrapper.ReadVoltage(ain);
                 Console.WriteLine($"ADS1115 Channel {ain} Voltage: {voltage.Volts:F5} V");
+                if (loopCount % 4 == 0)
+                {
+                    double luku = hat.Mcp9600Wrapper.ReadTemperature();
+                    _logger?.LogInformation($"MCP9600 Temperature: {luku:F3} °C");
+                    hat.Mcp9600Wrapper.DemoUse();
+                }
                 // _logger?.LogInformation($"ADS111
                 // Read joystick every 100ms
                 var (x, y) = joystick.ReadNormalized();

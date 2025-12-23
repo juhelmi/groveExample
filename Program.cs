@@ -73,6 +73,11 @@ namespace GroveHatExample
             
             while (true)
             {
+                // Read Ads1115 voltage (for demonstration)
+                var ain = loopCount % 8;
+                var voltage = hat.Ads1115Wrapper.ReadVoltage(ain);
+                Console.WriteLine($"ADS1115 Channel {ain} Voltage: {voltage.Volts:F5} V");
+                // _logger?.LogInformation($"ADS111
                 // Read joystick every 100ms
                 var (x, y) = joystick.ReadNormalized();
                 var direction = joystick.GetDirection();

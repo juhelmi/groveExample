@@ -13,6 +13,7 @@ namespace groveExample
         private readonly Ads1115Wrapper _ads1115;
         private readonly Mcp9600Wrapper _mcp9600;
         private readonly TCA9548AWrapper _i2cMux;
+        private readonly MultiRelay _multiRelay;
         
         // Grove digital port mappings (BCM GPIO numbers)
         public const int D5 = 5;
@@ -32,6 +33,8 @@ namespace groveExample
             _adc = new GroveAdc();
             _ads1115 = new Ads1115Wrapper();
             _mcp9600 = new Mcp9600Wrapper();
+            _multiRelay = new MultiRelay();
+
             Console.WriteLine( $"Grove Base Hat has ADC {_adc.Name}");
         }
         
@@ -39,8 +42,8 @@ namespace groveExample
         public GroveAdc Adc => _adc;
         public Ads1115Wrapper Ads1115Wrapper => _ads1115;
         public Mcp9600Wrapper Mcp9600Wrapper => _mcp9600;
-        //private TCA9548AWrapper I2cMux => _i2cMux;
         public TCA9548AWrapper I2cMux => _i2cMux;
+        public MultiRelay MultiRelay => _multiRelay;
         public void TestMux()
         {
             _i2cMux.TestUse();
@@ -57,6 +60,7 @@ namespace groveExample
             _ads1115?.Dispose();
             _mcp9600?.Dispose();
             _i2cMux?.Dispose();
+            _multiRelay?.Dispose();
         }
     }
 }

@@ -45,6 +45,21 @@ namespace groveExample
             using var hat = new GroveBaseHat();
             hat.TestMux();
             hat.MuxAllOn();
+
+            try 
+            {
+                // Test MultiRelay
+                hat.MultiRelay.WriteChannelStatus(1);
+                hat.MultiRelay.WriteChannelStatus(2);
+                hat.MultiRelay.WriteChannelStatus(4);
+                hat.MultiRelay.WriteChannelStatus(8);
+                hat.MultiRelay.WriteChannelStatus(0);
+                hat.MultiRelay.WriteChannelStatus(0xF); // Turn on first three relays
+            } 
+            catch (Exception ex)
+            {
+                _logger?.LogError(ex, "Error testing MultiRelay");
+            }
             
             // Setup LED on D5 port
             using var led = new GroveLed(hat.Gpio, GroveBaseHat.D5);

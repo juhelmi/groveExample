@@ -1,5 +1,10 @@
 # groveExample and demo SW
-Csharp study for Gove HAT on Raspberry Pi
+C# study for Gove HAT on Raspberry Pi
+
+Drivers are tested without application here and later used in other project. Looks that there could be multiple implementations for these but searching requires work. Some parts of code has quite same functionality as is used in grove.py. Pydantic or type hinting has not been used for grove.py. Type hinting is nice for new writer. When code is converted to C#, this feature is fixed on same time. It is now available vith VS code and C#.
+
+# Some memo commands for project creation
+Basic project creation:
 
 dotnet new console -n groveExample
 cd groveExample

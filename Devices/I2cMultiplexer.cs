@@ -1,6 +1,43 @@
 using System;
 using System.Device.I2c;
 
+/*
+ TCA9548A I2C Multiplexer
+ Datasheet: https://www.ti.com/lit/ds/symlink/tca9548a.pdf
+ Python implementation: https://github.com/adafruit/Adafruit_CircuitPython_TCA9548A
+*/
+/**
+Minimal implementation example:
+using System;
+using System.Device.I2c;
+
+public class Tca9548a
+{
+    private readonly I2cDevice _device;
+
+    public Tca9548a(int busId, int address = 0x70)
+    {
+        _device = I2cDevice.Create(new I2cConnectionSettings(busId, address));
+    }
+
+    public void SelectChannel(int channel)
+    {
+        if (channel < 0 || channel > 7)
+            throw new ArgumentOutOfRangeException(nameof(channel));
+
+        byte mask = (byte)(1 << channel);
+        _device.WriteByte(mask);
+    }
+
+    public void DisableAll()
+    {
+        _device.WriteByte(0x00);
+    }
+}
+
+*/
+
+
 namespace GroveDev
 {
     public enum TcaChannels

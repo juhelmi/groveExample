@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 using GroveDev;
 
-namespace GroveHatExample
+namespace groveExample
 {
     public class AdvancedGroveExample
     {

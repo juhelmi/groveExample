@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 using GroveDev;
 
-namespace GroveHatExample
+namespace groveExample
 {
     class Program
     {
@@ -38,7 +38,13 @@ namespace GroveHatExample
         
         static void RunGroveExample()
         {
+            // First poll BMP and BMP I2C devices
+            var tester = new GroveDev.TestPrint();
+            tester.PrintToConsole();
+
             using var hat = new GroveBaseHat();
+            hat.TestMux();
+            hat.MuxAllOn();
             
             // Setup LED on D5 port
             using var led = new GroveLed(hat.Gpio, GroveBaseHat.D5);
